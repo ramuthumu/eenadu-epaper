@@ -1,0 +1,35 @@
+<html>
+<head>
+    <style>
+        #image {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    {% for page in pages %}
+    <div>
+        <h2>{{ page.PageNumber }}</h2>
+        <img id="image" src="{{ page.XHighResolution }}" alt="{{ page.PageNumber }}">
+    </div>
+    {% endfor %}
+    <script>
+        // Get all images on the page
+        var images = document.querySelectorAll("img");
+
+        // Loop through the images
+        for (var i = 0; i < images.length; i++) {
+            // Get the current image
+            var image = images[i];
+
+            // Check the file extension of the image URL
+            if (image.src.endsWith(".png")) {
+                // If the file extension is .png, set the opacity to 50%
+                image.style.opacity = 0.5;
+            }
+        }
+    </script>
+</body>
+</html>

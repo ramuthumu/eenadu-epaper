@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Today's Editions</title>
+    <style>
+        .edition {
+            float: left;
+            width: 33.33%;
+            text-align: center;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;">Today's Editions</h1>
+<p style="text-align: center;">Date: {{ date }}</p>
+<div class="row">
+    {% for edition in editions %}
+    <div class="edition">
+        <h2>{{ edition.EditionName }}</h2>
+        <p>Date: {{ edition.EditionDate }}</p>
+        <img src="{{ edition.Path }}" alt="{{ edition.EditionName }} cover page">
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
